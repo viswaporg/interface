@@ -1,0 +1,108 @@
+body {
+    animation: bugfix infinite 1s;
+    -webkit-animation: bugfix infinite 1s;
+}
+@keyframes bugfix {
+    from {
+        padding: 0;
+   }
+    to {
+        padding: 0;
+   }
+}
+@-webkit-keyframes bugfix {
+    from {
+        padding: 0;
+   }
+    to {
+        padding: 0;
+   }
+}
+#overlay-button {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: .5rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+}
+#overlay-button span {
+    height: 4px;
+    width: 1.6rem;
+    border-radius: 2px;
+    background-color: rgba(251, 162, 60, 1);
+    position: relative;
+    display: block;
+    transition: all 0.2s ease-in-out;
+}
+#overlay-button span:before {
+    top: -10px;
+    visibility: visible;
+}
+#overlay-button span:after {
+    top: 10px;
+}
+#overlay-button span:before, #overlay-button span:after {
+    height: 4px;
+    width: 1.6rem;
+    border-radius: 2px;
+    background-color: rgba(251, 162, 60, 1);
+    position: absolute;
+    content: "";
+    transition: all 0.2s ease-in-out;
+}
+#overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+    background: rgba(251, 162, 60, 1);
+}
+
+#mobileMenu input[type=checkbox] {
+    display: none;
+}
+#mobileMenu input[type=checkbox]:checked ~ #overlay {
+    visibility: visible;
+}
+#mobileMenu input[type=checkbox]:checked ~ #overlay-button:hover span, #mobileMenu input[type=checkbox]:checked ~ #overlay-button span {
+    background: transparent;
+}
+#mobileMenu input[type=checkbox]:checked ~ #overlay-button span:before {
+    transform: rotate(45deg) translate(7px, 7px);
+    opacity: 1;
+}
+#mobileMenu input[type=checkbox]:checked ~ #overlay-button span:after {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+#overlay {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(33, 33, 46, 1) !important;;
+    z-index: 2;
+    visibility: hidden;
+    position: fixed;
+    top:0;
+}
+#overlay.active {
+    visibility: visible;
+}
+#overlay ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    padding-left: 0;
+    list-style-type: none;
+}
+#overlay ul li a {
+    color: rgba(209,213,219,1);
+    text-decoration: none;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    border: 1px solid rgba(251, 162, 60, 1);;
+}
+.rounded-2-rem {
+    border-radius: 9999px;
+}
